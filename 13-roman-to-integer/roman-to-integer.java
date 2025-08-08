@@ -1,6 +1,6 @@
 class Solution {
     public int romanToInt(String s) {
-        int ans=0,num=0;
+        int ans=0,num=0,prev=0;
         int i;
         for(i=s.length()-1;i>=0;i--){
             switch(s.charAt(i)){
@@ -27,11 +27,12 @@ class Solution {
                        break;
                 
             }
-            if(4*num<ans){
-                ans=ans-num;
+            if(num<prev){
+                ans-=num;
             }else{
                 ans=ans+num;
             }
+            prev=num;
         }
         return ans;
     }
