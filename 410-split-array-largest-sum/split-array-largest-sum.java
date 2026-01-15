@@ -17,7 +17,7 @@ class Solution {
 
     public int splitArray(int[] nums, int k) {
 
-        int low = 0, high = 0;
+        int low = 0, high = 0,ans=0;
 
         // low = max element, high = sum of array
         for (int x : nums) {
@@ -33,10 +33,11 @@ class Solution {
             if (subarrays > k) {
                 low = mid + 1;      // mid too small
             } else {
+                ans=mid;
                 high = mid - 1;    // try smaller answer
             }
         }
 
-        return low;
+        return ans;
     }
 }
